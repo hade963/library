@@ -1,0 +1,74 @@
+<!DOCTYPE html >
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="modes.css">
+  <title>hade library</title>
+</head>
+<body>
+  <!-- Start header  -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="./icons8-library-48.png" alt="">
+        <p>hade library</p>
+      </div>
+      <div class="controls">
+        <div class="addbtn"><button>Add Book</button></div>
+      </div>
+    </div>
+  </header>
+  <!-- End header  -->
+  <!-- Start main -->
+  <main>
+    <div class="container">
+    </div>
+  </main>
+  <!-- End main -->
+  <!-- Start footer-->
+  <footer>
+    <div class="container">
+      <div class="icon"></div>
+      <div class="copy">made with hade allila &copy;</div>
+      <div class="link"><a href="https://github.com">view code here</a></div>
+    </div>
+  </footer>
+  <!-- End footer-->
+  <!-- Start Templates -->
+
+  <template id = "card">
+    <div class="card">
+      <div class="icon"><img src="./icons8-book-48.png" alt=""></div>
+      <h3>Something</h3>
+      <div class="author"><h4>Author</h4> <span>hade allaila</span></div>
+      <div>
+        <h4>pages</h4> 
+        <span>256</span>
+      </div>
+      <button class="remove">Remove</button>
+    </div>
+  </template>
+  <template id="form">
+    <div class="add-book">
+      <div class="icon"><img class='close' src="/icons8-close-window-48.png" alt=""></div>
+      <form action="">
+        <label for="title">
+          Book title
+        </label>
+        <input type="text" id="title" name ='title' placeholder="Enter book's title" required>
+        <label for="author">Book author</label>
+        <input type="text" id="author" name ='author' placeholder="Enter book's author" required>
+        <label for="pages">Book pages</label>
+        <input type="number" id="pages" name ='pages' placeholder="Enter book's pages" required>
+        <button class="submitBook ">Add</button>
+      </form>
+    </div>
+  
+  </template>
+  <!-- End Templates -->
+  <script src="script.js"></script>
+</body>
+</html>

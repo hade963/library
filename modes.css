@@ -1,0 +1,8 @@
+:root.light { 
+  --box-shadow-color: #01579b40;
+  --card-background-color: #eee;
+  --body-layout-color: #0000005e;
+  --form-color: white;
+  --section-box-shadow-color: rgb(0 0 0 / 9%);
+  --input-shadow-color: black;
+}
