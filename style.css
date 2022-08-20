@@ -148,7 +148,7 @@ body.hidden::before {
   background-color: var(--body-layout-color);
 }
 .add-book { 
-  position: absolute;
+  position: fixed;
   top: 50%;
   transition: all .7s;  
   left: 50%;

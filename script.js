@@ -1,6 +1,63 @@
 const container = document.querySelector("main .container");
-let books = [];
 const addbtn = document.querySelector('.addbtn');
+let books = [];
+
+class Book { 
+  constructor(title,author,pages) { 
+    this.title  = title;
+    this.author = author;
+    this.pages  = pages;
+  }
+
+  addBook(form) {
+    this.title = form.querySelector('input[name="title"]').value;
+    this.author = form.querySelector('input[name="author"]').value;
+    this.pages = form.querySelector('input[name="pages"]').value;
+
+  }
+  removeBook(index) { 
+    books.splice(index,1);
+    showBooks();
+}
+}
+const template = document.querySelector('#form').content;
+  const form = template.querySelector('.add-book').cloneNode(true);
+function showForm () { 
+  document.body.appendChild(form);
+  document.body.className = 'hidden';
+  
+}
+
+function hideForm () { 
+  const form = document.querySelector('.add-book');
+  form.remove();
+  document.body.setAttribute('class','');
+}
+
+addbtn.addEventListener('click', showForm);
+document.addEventListener('click',(e) => {
+  if(e.target.className ==='close') {
+  hideForm();
+}
+
+});
+document.addEventListener('submit',(e) => { 
+  e.preventDefault();
+  let form = e.target;
+  let mybook = new Book();
+  mybook.addBook(form);
+  books.push(mybook);
+  showBooks();
+  form.parentNode.remove();
+  document.body.setAttribute('class','');
+});
+document.addEventListener('click',function (e){  
+  if(e.target.className === "remove") { 
+    let index = e.target.parentNode.dataset.index;
+    books[index].removeBook(index);
+  }
+
+});
 
 function showBooks () { 
   container.innerHTML = '';
@@ -14,64 +71,14 @@ function showBooks () {
     container.appendChild(card);
   }
 }
-
-function showForm () { 
-  const template = document.querySelector('#form').content;
-  const form = template.querySelector('.add-book').cloneNode(true);
-  document.body.appendChild(form);
-  document.body.className = 'hidden';
-
+for(let i=0;i<10;i++) { 
+  let mybook = new Book('hkjadf',"hade", '256');
+  books.push(mybook);
 }
-
-function hideForm (e) { 
-  if(e.target.className ==='close') {
-    const form = document.querySelector('.add-book');
-    form.remove();
-    document.body.setAttribute('class','');
-  }
-  }
+showBooks();
 
 
-function addObject(form) {
-  this.title = form.querySelector('input[name="title"]').value;
-  this.author = form.querySelector('input[name="author"]').value;
-  this.pages = form.querySelector('input[name="pages"]').value;
-
-}
-
-addbtn.addEventListener('click',showForm);
-document.addEventListener('click',hideForm);
-document.addEventListener('submit',addBook);
-document.addEventListener('click',removeBook);
-
-function addBook(e) { 
-  e.preventDefault();
-  let book  = new addObject(e.target);
-  books.push(book);
-  document.body.setAttribute('class','');
-  e.target.parentNode.remove();
-  showBooks();
-}
-
-
-function removeBook(e) { 
-  if(e.target.className === "remove") { 
-    let index = e.target.parentNode.dataset.index;
-    books.splice(index,1);
-    showBooks();
-  }
-}
-
+// sate the copyright year dinamicly
 const date = new Date();
 const copy = document.querySelector('footer .copy');
 copy.textContent += " " + date.getFullYear();
-
-for(let i=0;i<4;i++) { 
-  let book = {
-    title: "title",
-    author: 'hade',
-    pages: '123'
-  };
-  books.push(book);
-}
-showBooks();
